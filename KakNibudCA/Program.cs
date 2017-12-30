@@ -14,13 +14,14 @@ namespace KakNibudCA
     {
         static void Main(string[] args)
         {
-            IOperator op = new Operator();
+            Operator op = new Operator();
             Console.WriteLine("Введите логотип");
             op.logo = Console.ReadLine();
 
             Console.WriteLine("Введите префиксы");
             short val = 0;
             List<Prefics> prefics = new List<Prefics>();
+
             do
             {
                 val = Int16.Parse(Console.ReadLine());
@@ -42,7 +43,9 @@ namespace KakNibudCA
 
             Administator ad = new Administator(@"\\dc\Students\Для сохранения\PMP-162.1");
             string mes = "Всё нормально!";
-            bool opcreate = ad.CreateOperator(op,out mes);
+
+            ad.CreateOperatorSerialize(op, out mes);
+            //bool opcreate = ad.CreateOperator(op,out mes);
             Console.WriteLine(mes);
 
 
